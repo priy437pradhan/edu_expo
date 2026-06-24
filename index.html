@@ -1,942 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Odisha Education Expo — One Stop Solution for Education</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTV Education Conclave 2026 — Odisha Education Expo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --sky-0:#f3f9ff;
-    --sky-1:#e4f1ff;
-    --sky-2:#cfe6ff;
-    --sky-3:#a8d3ff;
-    --blue:#1b7fe3;
-    --blue-deep:#0b4f8a;
-    --ink:#0a2540;
-    --ink-soft:#3c5878;
-    --amber:#ffb020;
-    --amber-deep:#e88f00;
-    --white:#ffffff;
-    --radius:22px;
-    --shadow-soft:0 18px 50px -22px rgba(11,79,138,.45);
-    --shadow-lift:0 30px 70px -30px rgba(11,79,138,.55);
-    --maxw:1200px;
-    --font-display:"Bricolage Grotesque",sans-serif;
-    --font-body:"Hanken Grotesk",sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:var(--font-body);
-    color:var(--ink);
-    background:
-      radial-gradient(1200px 600px at 80% -5%, var(--sky-2), transparent 60%),
-      radial-gradient(900px 500px at -10% 10%, #dcebff, transparent 55%),
-      linear-gradient(180deg,var(--sky-0),#ffffff 40%);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--font-display);line-height:1.04;letter-spacing:-.02em;font-weight:800}
-  a{text-decoration:none;color:inherit}
-  .eyebrow{
-    font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--blue);display:inline-flex;align-items:center;gap:9px;
-  }
-  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber);border-radius:2px}
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;
-    font-family:var(--font-body);font-weight:700;font-size:1rem;
-    padding:15px 26px;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s;
-  }
-  .btn svg{width:18px;height:18px}
-  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 14px 30px -12px rgba(27,127,227,.7)}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(27,127,227,.8)}
-  .btn-amber{background:var(--amber);color:#3a2600;box-shadow:0 14px 30px -12px rgba(232,143,0,.65)}
-  .btn-amber:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(232,143,0,.75)}
-  .btn-ghost{background:#fff;color:var(--blue-deep);box-shadow:inset 0 0 0 2px var(--sky-3)}
-  .btn-ghost:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 2px var(--blue),0 16px 30px -16px rgba(11,79,138,.4)}
-
-  /* ---------- Nav ---------- */
-  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
-    background:rgba(243,249,255,.78);border-bottom:1px solid rgba(168,211,255,.5)}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-  .brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.15rem}
-  .brand .logo{
-    width:42px;height:42px;border-radius:13px;display:grid;place-items:center;color:#fff;font-size:1.1rem;
-    background:linear-gradient(140deg,var(--blue),var(--blue-deep));box-shadow:var(--shadow-soft);
-  }
-  .brand small{display:block;font-family:var(--font-body);font-weight:600;font-size:.66rem;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-soft);margin-top:1px}
-  .nav-collapse{display:flex;align-items:center;gap:34px}
-  .navlinks{display:flex;gap:30px;font-weight:600;font-size:.95rem;color:var(--ink-soft)}
-  .navlinks a{transition:color .2s;position:relative}
-  .navlinks a:hover{color:var(--blue)}
-  .nav-cta{display:flex;gap:12px;align-items:center}
-  .hamburger{display:none;width:44px;height:44px;border:none;background:#fff;border-radius:12px;cursor:pointer;
-    box-shadow:inset 0 0 0 1.5px var(--sky-2);position:relative;flex-shrink:0}
-  .hamburger span,.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:11px;width:22px;height:2.4px;
-    background:var(--blue-deep);border-radius:3px;transition:transform .3s,opacity .2s}
-  .hamburger span{top:21px}
-  .hamburger span::before{top:-7px}
-  .hamburger span::after{top:7px}
-  .hamburger.open span{background:transparent}
-  .hamburger.open span::before{transform:translateY(7px) rotate(45deg)}
-  .hamburger.open span::after{transform:translateY(-7px) rotate(-45deg)}
-  @media(max-width:940px){
-    .hamburger{display:block}
-    .nav-collapse{position:absolute;top:100%;left:0;right:0;z-index:60;flex-direction:column;align-items:stretch;gap:0;
-      background:#f3f9ff;border-bottom:1px solid rgba(168,211,255,.5);
-      padding:8px 24px 22px;box-shadow:var(--shadow-soft);
-      transform:translateY(-12px);opacity:0;visibility:hidden;pointer-events:none;transition:transform .28s,opacity .28s,visibility .28s}
-    .nav-collapse.open{transform:none;opacity:1;visibility:visible;pointer-events:auto}
-    .navlinks{flex-direction:column;gap:0;font-size:1.05rem}
-    .navlinks a{padding:14px 4px;border-bottom:1px solid rgba(168,211,255,.4)}
-    .nav-cta{flex-direction:column;align-items:stretch;gap:10px;margin-top:18px}
-    .nav-cta .btn{justify-content:center;width:100%}
-    body.nav-locked{overflow:hidden}
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{position:relative;padding:90px 0 70px}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
-  .hero-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--sky-2);
-    padding:8px 16px;border-radius:999px;font-weight:600;font-size:.85rem;color:var(--ink-soft);box-shadow:var(--shadow-soft)}
-  .hero-badge b{color:var(--blue-deep)}
-  .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(255,176,32,.25)}
-  h1.hero-title{font-size:clamp(2.6rem,6vw,4.6rem);margin:22px 0 18px}
-  h1.hero-title .grad{background:linear-gradient(120deg,var(--blue),var(--blue-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero-sub{font-size:1.12rem;color:var(--ink-soft);max-width:520px;line-height:1.6;margin-bottom:30px}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-meta{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
-  .hero-meta div{display:flex;flex-direction:column}
-  .hero-meta b{font-family:var(--font-display);font-size:1.7rem;color:var(--ink)}
-  .hero-meta span{font-size:.82rem;color:var(--ink-soft);font-weight:600}
-
-  /* hero visual */
-  .hero-visual{position:relative;height:480px}
-  .float-card{position:absolute;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-lift);
-    padding:18px 20px;border:1px solid var(--sky-1)}
-  .fc1{top:10px;left:0;width:230px;animation:floaty 6s ease-in-out infinite}
-  .fc2{top:170px;right:0;width:215px;animation:floaty 7s ease-in-out infinite .8s}
-  .fc3{bottom:0;left:40px;width:250px;animation:floaty 6.5s ease-in-out infinite .4s}
-  .fc-blob{position:absolute;inset:30px;border-radius:40% 60% 55% 45%/55% 45% 60% 40%;
-    background:linear-gradient(140deg,var(--sky-3),var(--blue));filter:blur(2px);opacity:.55;z-index:-1;
-    animation:morph 12s ease-in-out infinite}
-  .fc-ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:10px}
-  .fc-title{font-family:var(--font-display);font-weight:800;font-size:1.05rem}
-  .fc-text{font-size:.82rem;color:var(--ink-soft);margin-top:3px}
-  .fc-bar{height:7px;border-radius:9px;background:var(--sky-1);margin-top:12px;overflow:hidden}
-  .fc-bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--blue),var(--amber))}
-  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-  @keyframes morph{0%,100%{border-radius:40% 60% 55% 45%/55% 45% 60% 40%}50%{border-radius:60% 40% 45% 55%/45% 60% 40% 55%}}
-  @media(max-width:980px){
-    .hero{padding:60px 0 50px}
-    .hero-grid{grid-template-columns:1fr;gap:36px}
-    .hero-sub{max-width:none}
-    /* turn floating layout into a clean stacked layout */
-    .hero-visual{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
-    .fc-blob{display:none}
-    .float-card{position:static;width:auto;animation:none}
-    .fc1{grid-column:1 / -1}
-  }
-  @media(max-width:440px){
-    .hero-visual{grid-template-columns:1fr}
-  }
-
-  /* ---------- Marquee strip ---------- */
-  .strip{background:var(--ink);color:#bcd6f3;padding:16px 0;overflow:hidden;white-space:nowrap}
-  .strip .track{display:inline-flex;gap:50px;animation:scrollx 26s linear infinite;font-family:var(--font-display);
-    font-weight:600;font-size:1.05rem;letter-spacing:.01em}
-  .strip .track span{display:inline-flex;align-items:center;gap:50px}
-  .strip .track i{color:var(--amber);font-style:normal}
-  @keyframes scrollx{to{transform:translateX(-50%)}}
-
-  /* ---------- Section base ---------- */
-  section{padding:84px 0}
-  .sec-head{max-width:680px;margin-bottom:46px}
-  .sec-head.center{margin-inline:auto;text-align:center}
-  .sec-head h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0 14px}
-  .sec-head p{color:var(--ink-soft);font-size:1.08rem;line-height:1.6}
-
-  /* ---------- Audience tracks ---------- */
-  .tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .track{position:relative;background:#fff;border:1px solid var(--sky-1);border-radius:var(--radius);
-    padding:32px 28px 30px;box-shadow:var(--shadow-soft);transition:transform .3s,box-shadow .3s;overflow:hidden}
-  .track::after{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--blue),var(--amber))}
-  .track:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift)}
-  .track .ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin-bottom:18px;color:#fff}
-  .track h3{font-size:1.45rem;margin-bottom:10px}
-  .track p{color:var(--ink-soft);font-size:.96rem;line-height:1.55;margin-bottom:18px}
-  .track ul{list-style:none;margin-bottom:24px}
-  .track li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:var(--ink);padding:6px 0;font-weight:500}
-  .track li svg{width:18px;height:18px;color:var(--blue);flex-shrink:0;margin-top:2px}
-  .track .btn{width:100%;justify-content:center}
-  .tag{position:absolute;top:22px;right:22px;background:var(--sky-1);color:var(--blue-deep);
-    font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:999px;letter-spacing:.04em}
-  @media(max-width:860px){.tracks{grid-template-columns:1fr}}
-
-  /* ---------- Narrative / one-stop ---------- */
-  .narrative{background:linear-gradient(160deg,var(--blue-deep),#0a3a68);color:#eaf4ff;border-radius:34px;
-    padding:64px 56px;position:relative;overflow:hidden}
-  .narrative::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;
-    background:radial-gradient(circle,var(--blue),transparent 70%);top:-160px;right:-120px;opacity:.5}
-  .narrative::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;
-    background:radial-gradient(circle,var(--amber),transparent 70%);bottom:-140px;left:-80px;opacity:.18}
-  .narrative .inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:46px;align-items:center}
-  .narrative h2{font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:18px}
-  .narrative p{color:#c3dcf6;font-size:1.08rem;line-height:1.65;margin-bottom:14px}
-  .narrative .eyebrow{color:var(--amber)}
-  .narrative .eyebrow::before{background:var(--amber)}
-  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .pillar{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:20px}
-  .pillar b{font-family:var(--font-display);font-size:1.05rem;display:block;margin-bottom:6px;color:#fff}
-  .pillar span{font-size:.86rem;color:#a9c9ea;line-height:1.5}
-  .pillar .pico{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.12);display:grid;place-items:center;margin-bottom:12px}
-  @media(max-width:860px){.narrative{padding:44px 26px}.narrative .inner{grid-template-columns:1fr;gap:30px}}
-
-  /* ---------- GALLERY 1 : Asymmetric masonry ---------- */
-.gal-masonry{columns:3;column-gap:18px}
-.gal-masonry figure{break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;position:relative;
-  box-shadow:var(--shadow-soft);background:var(--sky-1)}
-.gal-masonry img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .6s}
-.gal-masonry figure:hover img{transform:scale(1.07)}
-
-/* staggered heights — cycles every 6 figures, echoing the original look */
-.gal-masonry figure:nth-child(6n+1) img{aspect-ratio:3/4}   /* tall   */
-.gal-masonry figure:nth-child(6n+2) img{aspect-ratio:3/2}   /* wide   */
-.gal-masonry figure:nth-child(6n+3) img{aspect-ratio:6/5}   /* squarish */
-.gal-masonry figure:nth-child(6n+4) img{aspect-ratio:4/3}   /* wide   */
-.gal-masonry figure:nth-child(6n+5) img{aspect-ratio:5/6}   /* tall   */
-.gal-masonry figure:nth-child(6n)   img{aspect-ratio:5/4}   /* wide   */
-
-.gal-masonry figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px;
-  background:linear-gradient(0deg,rgba(10,37,64,.85),transparent);color:#fff;font-weight:600;font-size:.9rem;
-  opacity:0;transition:opacity .3s}
-.gal-masonry figure:hover figcaption{opacity:1}
-@media(hover:none){.gal-masonry figcaption{opacity:1}}   /* show on phones */
-
-@media(max-width:860px){.gal-masonry{columns:2}}
-@media(max-width:520px){.gal-masonry{columns:1}}
-
-  /* ---------- GALLERY 2 : Bento ---------- */
-  .gal-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:16px}
-  .gal-bento .cell{border-radius:20px;overflow:hidden;position:relative;box-shadow:var(--shadow-soft)}
-  .gal-bento .cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-  .gal-bento .cell:hover img{transform:scale(1.08)}
-  .gal-bento .cell .lbl{position:absolute;left:14px;bottom:12px;color:#fff;font-family:var(--font-display);
-    font-weight:700;font-size:1rem;text-shadow:0 2px 12px rgba(0,0,0,.6);z-index:2}
-  .gal-bento .cell::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,79,138,.55),transparent 55%)}
-  .gal-bento .big{grid-column:span 2;grid-row:span 2}
-  .gal-bento .wide{grid-column:span 2}
-  .gal-bento .tall{grid-row:span 2}
-  @media(max-width:860px){.gal-bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
-    .gal-bento .big{grid-column:span 2}.gal-bento .wide{grid-column:span 2}}
-
-  /* ---------- GALLERY 3 : Horizontal scroll snap ---------- */
-  .gal-scroll-wrap{position:relative}
-  .gal-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 22px;
-    scrollbar-width:thin;scrollbar-color:var(--sky-3) transparent}
-  .gal-scroll::-webkit-scrollbar{height:8px}
-  .gal-scroll::-webkit-scrollbar-thumb{background:var(--sky-3);border-radius:9px}
-  .gal-scroll .slide{flex:0 0 340px;scroll-snap-align:start;border-radius:22px;overflow:hidden;position:relative;
-    box-shadow:var(--shadow-soft);background:#fff}
-  .gal-scroll .slide img{width:100%;height:260px;object-fit:cover;display:block}
-  .gal-scroll .slide .meta{padding:18px 20px}
-  .gal-scroll .slide .meta b{font-family:var(--font-display);font-size:1.1rem;display:block}
-  .gal-scroll .slide .meta span{font-size:.85rem;color:var(--ink-soft)}
-  .gal-scroll .slide .pin{position:absolute;top:14px;left:14px;background:#fff;color:var(--blue-deep);
-    font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px;box-shadow:var(--shadow-soft)}
-  .scroll-hint{font-size:.82rem;color:var(--ink-soft);font-weight:600;margin-top:6px;display:flex;align-items:center;gap:8px}
-
-  /* ---------- GALLERY 4 : Polaroid / tilted stack ---------- */
-  .gal-polaroids{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding-top:14px}
-  .polaroid{background:#fff;padding:12px 12px 46px;border-radius:8px;box-shadow:var(--shadow-lift);
-    width:240px;transition:transform .35s,box-shadow .35s;position:relative}
-  .polaroid img{width:100%;height:200px;object-fit:cover;border-radius:4px;display:block}
-  .polaroid figcaption{font-family:var(--font-display);font-weight:600;font-size:.95rem;text-align:center;
-    margin-top:14px;color:var(--ink)}
-  .polaroid:nth-child(odd){transform:rotate(-4deg)}
-  .polaroid:nth-child(even){transform:rotate(3deg)}
-  .polaroid:hover{transform:rotate(0) scale(1.05);box-shadow:0 40px 80px -30px rgba(11,79,138,.6);z-index:5}
-  .polaroid::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
-    width:64px;height:20px;background:rgba(255,176,32,.55);border-radius:3px;rotate:-2deg}
-
-  /* ---------- Sponsors ---------- */
-  .sponsors{text-align:center}
-  .logos{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:34px}
-  .logos .lg{background:#fff;border:1px solid var(--sky-1);border-radius:16px;padding:18px 30px;
-    font-family:var(--font-display);font-weight:700;color:var(--ink-soft);font-size:1.05rem;
-    box-shadow:var(--shadow-soft);transition:transform .25s,color .25s}
-  .logos .lg:hover{transform:translateY(-5px);color:var(--blue)}
-
-  /* ---------- Final CTA ---------- */
-  .cta-band{text-align:center;background:linear-gradient(160deg,var(--sky-1),#fff);border-radius:34px;
-    padding:64px 30px;border:1px solid var(--sky-2);position:relative;overflow:hidden}
-  .cta-band h2{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:16px}
-  .cta-band p{color:var(--ink-soft);font-size:1.12rem;max-width:560px;margin:0 auto 30px}
-  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--ink);color:#a9c4e0;padding:56px 0 30px;margin-top:30px}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px}
-  footer h4{font-family:var(--font-display);color:#fff;font-size:1rem;margin-bottom:16px}
-  footer a{display:block;color:#a9c4e0;padding:5px 0;font-size:.92rem;transition:color .2s}
-  footer a:hover{color:var(--amber)}
-  .foot-brand p{font-size:.92rem;line-height:1.6;margin-top:14px;max-width:300px}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;
-    flex-wrap:wrap;gap:10px;font-size:.85rem;color:#7e9bbb}
-  @media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
-
-  /* ---------- Registration form ---------- */
-  .reg-card{background:#fff;border:1px solid var(--sky-1);border-radius:30px;box-shadow:var(--shadow-lift);
-    overflow:hidden;display:grid;grid-template-columns:.85fr 1.15fr}
-  .reg-side{background:linear-gradient(160deg,var(--blue-deep),#0a3a68);color:#eaf4ff;padding:46px 38px;position:relative;overflow:hidden}
-  .reg-side::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;
-    background:radial-gradient(circle,var(--blue),transparent 70%);bottom:-120px;right:-100px;opacity:.5}
-  .reg-side .eyebrow{color:var(--amber)}.reg-side .eyebrow::before{background:var(--amber)}
-  .reg-side h2{font-size:2rem;color:#fff;margin:14px 0 16px}
-  .reg-side p{color:#bcd6f3;line-height:1.6;margin-bottom:26px;position:relative;z-index:2}
-  .reg-points{list-style:none;position:relative;z-index:2}
-  .reg-points li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:.95rem;font-weight:500}
-  .reg-points svg{width:20px;height:20px;color:var(--amber);flex-shrink:0;margin-top:1px}
-  .reg-form{padding:42px 40px}
-  .seg{display:flex;gap:8px;background:var(--sky-0);border:1px solid var(--sky-1);padding:6px;border-radius:14px;margin-bottom:26px}
-  .seg button{flex:1;border:none;background:transparent;cursor:pointer;font-family:var(--font-body);font-weight:700;
-    font-size:.92rem;color:var(--ink-soft);padding:11px 8px;border-radius:10px;transition:all .25s}
-  .seg button.active{background:#fff;color:var(--blue-deep);box-shadow:var(--shadow-soft)}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .field{margin-bottom:16px}
-  .field label{display:block;font-weight:600;font-size:.85rem;margin-bottom:7px;color:var(--ink)}
-  .field label .req{color:var(--amber-deep)}
-  .field input,.field select,.field textarea{width:100%;font-family:var(--font-body);font-size:.95rem;color:var(--ink);
-    padding:13px 15px;border:1.5px solid var(--sky-2);border-radius:12px;background:var(--sky-0);transition:border .2s,box-shadow .2s}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);
-    box-shadow:0 0 0 4px rgba(27,127,227,.14);background:#fff}
-  .field textarea{resize:vertical;min-height:88px}
-  .field .err{color:#d23b3b;font-size:.8rem;margin-top:5px;display:none}
-  .field.invalid input,.field.invalid select{border-color:#d23b3b;background:#fff5f5}
-  .field.invalid .err{display:block}
-  .reg-form .btn{width:100%;justify-content:center;margin-top:8px}
-  .form-note{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-top:14px}
-  .reg-success{display:none;text-align:center;padding:30px 10px}
-  .reg-success.show{display:block;animation:popin .5s cubic-bezier(.2,.8,.2,1)}
-  .reg-success .check{width:78px;height:78px;border-radius:50%;background:linear-gradient(140deg,#34c759,#0b8a4f);
-    display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 18px 40px -16px rgba(11,138,79,.6)}
-  .reg-success h3{font-size:1.7rem;margin-bottom:10px}
-  .reg-success p{color:var(--ink-soft);line-height:1.6;max-width:380px;margin:0 auto 22px}
-  @keyframes popin{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
-  @media(max-width:860px){.reg-card{grid-template-columns:1fr}.reg-side{padding:36px 28px}.reg-form{padding:32px 24px}
-    .field-row{grid-template-columns:1fr}}
-
-  /* ---------- Global responsive tuning ---------- */
-  @media(max-width:980px){
-    section{padding:64px 0}
-    .narrative{border-radius:26px}
-    /* form: show the intro panel below the form on mobile so the form is first */
-    .reg-card{grid-template-columns:1fr}
-    .reg-side{order:2}
-  }
-  @media(max-width:640px){
-    .wrap{padding:0 18px}
-    section{padding:54px 0}
-    .sec-head{margin-bottom:34px}
-    .hero-meta{gap:22px}
-    .hero-meta b{font-size:1.45rem}
-    .seg{flex-wrap:wrap}
-    .seg button{flex:1 1 30%;font-size:.82rem;padding:10px 6px}
-    .gal-bento{grid-template-columns:1fr 1fr;grid-auto-rows:120px}
-    .gal-bento .big{grid-column:span 2;grid-row:span 2}
-    .gal-scroll .slide{flex-basis:78vw}
-    .foot-grid{grid-template-columns:1fr 1fr;gap:26px}
-    .cta-band{padding:48px 22px;border-radius:26px}
-    .cta-actions .btn,.hero-actions .btn{flex:1 1 100%;justify-content:center}
-  }
-  @media(max-width:400px){
-    .brand small{display:none}
-    .brand{font-size:1.02rem}
-    .brand .logo{width:38px;height:38px}
-    h1.hero-title{font-size:2.3rem}
-    .seg button{flex-basis:100%}
-    .gal-bento{grid-template-columns:1fr;grid-auto-rows:160px}
-    .gal-bento .big,.gal-bento .wide,.gal-bento .tall{grid-column:auto;grid-row:auto}
-    .foot-grid{grid-template-columns:1fr}
-    .polaroid{width:100%;max-width:300px}
-  }
-
-  /* ---------- Reveal animation ---------- */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Hanken+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="vendor/three.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="scene.js"></script>
+<script src="expoService.js"></script>
+<script src="registerForm.js"></script>
+<script src="admin.js"></script>
 </head>
 <body>
 
-<!-- ======= NAV ======= -->
-<header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#">
-        <span class="logo">OE</span>
-        <span>Odisha Education Expo
-          <small>An OdishaTV Initiative</small>
-        </span>
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
-      <div class="nav-collapse" id="navCollapse">
-        <div class="navlinks">
-          <a href="#tracks">Why Attend</a>
-          <a href="#solution">One-Stop Solution</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#sponsors">Sponsors</a>
-        </div>
-        <div class="nav-cta">
-          <a href="#register" data-open="attend" class="btn btn-ghost">Participate</a>
-          <a href="#register" data-open="stall" class="btn btn-primary">Book a Stall</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+<canvas id="hallCanvas" aria-hidden="true"></canvas>
 
-<!-- ======= HERO ======= -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy reveal">
-      <span class="hero-badge"><span class="dot"></span> <b>Bhubaneswar</b> · 12–14 Dec 2026 · Janata Maidan</span>
-      <h1 class="hero-title">The <span class="grad">one-stop</span> destination for education in Odisha</h1>
-      <p class="hero-sub">Schools, colleges, ed-tech, coaching, study-abroad and skilling — all under one roof. Discover, compare and connect at Odisha's largest education expo, powered by OdishaTV.</p>
-      <div class="hero-actions">
-        <a href="#register" data-open="stall" class="btn btn-primary">Book a Stall
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#register" data-open="sponsor" class="btn btn-amber">Become a Sponsor</a>
-        <a href="#register" data-open="attend" class="btn btn-ghost">Participate Free</a>
-      </div>
-      <div class="hero-meta">
-        <div><b>120+</b><span>Exhibitors</span></div>
-        <div><b>40K+</b><span>Visitors expected</span></div>
-        <div><b>3</b><span>Days · 60+ sessions</span></div>
-      </div>
-    </div>
-
-    <div class="hero-visual reveal">
-      <div class="fc-blob"></div>
-      <div class="float-card fc1">
-        <div class="fc-ico" style="background:linear-gradient(140deg,#1b7fe3,#0b4f8a)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
-        </div>
-        <div class="fc-title">Book a Stall</div>
-        <div class="fc-text">Prime hall placement</div>
-        <div class="fc-bar"><i style="width:82%"></i></div>
-      </div>
-      <div class="float-card fc2">
-        <div class="fc-ico" style="background:linear-gradient(140deg,#ffb020,#e88f00)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
-        </div>
-        <div class="fc-title">Sponsor</div>
-        <div class="fc-text">Title & track packages</div>
-        <div class="fc-bar"><i style="width:64%"></i></div>
-      </div>
-      <div class="float-card fc3">
-        <div class="fc-ico" style="background:linear-gradient(140deg,#34c759,#0b8a4f)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div class="fc-title">Participate</div>
-        <div class="fc-text">Free visitor registration</div>
-        <div class="fc-bar"><i style="width:91%"></i></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======= MARQUEE STRIP ======= -->
-<div class="strip">
-  <div class="track">
-    <span>Schools <i>✦</i> Colleges &amp; Universities <i>✦</i> Ed-Tech <i>✦</i> Study Abroad <i>✦</i> Coaching &amp; Test-Prep <i>✦</i> Skilling &amp; Vocational <i>✦</i> Scholarships <i>✦</i> Career Counselling <i>✦</i></span>
-    <span>Schools <i>✦</i> Colleges &amp; Universities <i>✦</i> Ed-Tech <i>✦</i> Study Abroad <i>✦</i> Coaching &amp; Test-Prep <i>✦</i> Skilling &amp; Vocational <i>✦</i> Scholarships <i>✦</i> Career Counselling <i>✦</i></span>
+<div class="hall-loading" id="hallLoading" aria-hidden="true">
+  <div class="hl-inner">
+    <div class="hl-word">The Long Hall</div>
+    <div class="hl-bar"><i id="hlBar"></i></div>
+    <div class="hl-tag">OTV Education Conclave 2026 · Loading</div>
   </div>
 </div>
 
-<!-- ======= AUDIENCE TRACKS ======= -->
-<section id="tracks">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Three ways to join</span>
-      <h2>One expo, built for everyone</h2>
-      <p>Whether you're here to learn, to grow your brand, or to showcase your institution — there's a track for you.</p>
+<!-- fixed chrome -->
+<div class="chrome chrome-top">
+  <a class="brand" href="#top">
+    <img src="https://old.odishatv.in/commondir/web/mobile/images/header-dark-logo.png" alt="OdishaTV">
+    <span class="wm"><strong>Education Conclave</strong><span>OTV · 2026</span></span>
+  </a>
+  <div class="chrome-actions">
+    <nav class="nav-mini">
+      <a href="#sceneSessions">Sessions</a>
+      <a href="#sceneAud">Who It's For</a>
+      <a href="#sceneVisit">Your Visit</a>
+     
+    </nav>
+    <a class="btn solid" href="#register">Register Free <span class="arr">→</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
+  </div>
+</div>
+
+<div class="rail" aria-hidden="true">
+  <div class="rail-pct" id="railPct">00</div>
+  <div class="rail-line"><i id="railFill"></i></div>
+</div>
+
+<div class="cue" id="scrollCue" aria-hidden="true">
+  <span class="cue-txt">Walk the hall</span>
+  <span class="cue-dot"></span>
+</div>
+
+<div class="menu-overlay" id="menuOverlay" data-screen-label="Mobile menu">
+  <a href="#sceneSessions"><sup>01</sup> Sessions</a>
+  <a href="#sceneAud"><sup>02</sup> Who It's For</a>
+  <a href="#sceneVisit"><sup>03</sup> Your Visit</a>
+  <a href="#register"><sup>04</sup> Register</a>
+</div>
+
+<!-- scroll scenes -->
+<main class="scenes" id="top">
+
+  <section class="scene scene-intro" data-screen-label="Intro">
+    <div class="scene-inner">
+      <div class="s-kicker">OTV Education Conclave &amp; Expo</div>
+      <h1>OTV Education<br>Conclave <em>2026.</em></h1>
+      <p class="s-dek">Changing trends in education. Growing concerns about careers. New challenges facing the education system.</p>
+      <div class="intro-ctas">
+        <a class="btn solid" href="#register">Register Free <span class="arr">→</span></a>
+        <a class="btn" href="#register">Book a Stall</a>
+      </div>
     </div>
-    <div class="tracks">
-      <!-- Attendees -->
-      <div class="track reveal">
-        <span class="tag">Free entry</span>
-        <div class="ico" style="background:linear-gradient(140deg,#34c759,#0b8a4f)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
-        </div>
-        <h3>Attendees</h3>
-        <p>Students, parents and aspirants exploring their next step in education and careers.</p>
+  </section>
+
+  <section class="scene scene-why" data-screen-label="Why it matters">
+    <div class="scene-inner">
+      <div class="s-kicker"><span class="no">01</span> Why it matters</div>
+      <h2 class="s-title">Exam scores alone<br>no longer decide<br>who <em>succeeds.</em></h2>
+      <p class="s-dek">In today's world, success is no longer determined by exam scores alone. What students need are skills, vision, and the right guidance.</p>
+      <div class="why-qs">
+        <span class="why-qs-label">A few among hundreds of questions students &amp; parents face</span>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Meet 120+ institutions in one visit</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Free career counselling on-site</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> On-spot admissions &amp; scholarships</li>
+          <li>Which course should they choose?</li>
+          <li>Which fields offer the best opportunities?</li>
+          <li>How is education evolving in the age of Artificial Intelligence?</li>
+          <li>What new opportunities are emerging for students across sectors?</li>
         </ul>
-        <a href="#register" data-open="attend" class="btn btn-ghost">Register Free</a>
-      </div>
-      <!-- Sponsors -->
-      <div class="track reveal">
-        <span class="tag">Brand reach</span>
-        <div class="ico" style="background:linear-gradient(140deg,#ffb020,#e88f00)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
-        </div>
-        <h3>Sponsors</h3>
-        <p>Brands and institutions seeking high-visibility association with Odisha's education community.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Title, co-title &amp; track sponsorships</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> On-air promotion across OdishaTV</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Stage branding &amp; speaking slots</li>
-        </ul>
-        <a href="#register" data-open="sponsor" class="btn btn-amber">Get Sponsor Deck</a>
-      </div>
-      <!-- Stall Purchasers -->
-      <div class="track reveal">
-        <span class="tag">Exhibit</span>
-        <div class="ico" style="background:linear-gradient(140deg,#1b7fe3,#0b4f8a)">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg>
-        </div>
-        <h3>Stall Purchasers</h3>
-        <p>Schools, colleges, ed-tech and coaching brands ready to showcase, recruit and enrol.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Standard, premium &amp; corner stalls</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Direct leads from 40K+ visitors</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Listing on the expo directory</li>
-        </ul>
-        <a href="#register" data-open="stall" class="btn btn-primary">Book a Stall</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ======= NARRATIVE / ONE-STOP SOLUTION ======= -->
-<section id="solution">
-  <div class="wrap">
-    <div class="narrative reveal">
-      <div class="inner">
-        <div>
-          <span class="eyebrow">The narrative</span>
-          <h2>Your single stop for every education decision</h2>
-          <p>From choosing a school to landing a scholarship abroad — the journey is scattered across dozens of websites, agents and brochures. Odisha Education Expo brings the entire ecosystem into one place, one weekend.</p>
-          <p>Compare options side by side, talk to decision-makers directly, and walk out with a plan — not just pamphlets.</p>
+  <section class="scene scene-mission right" data-screen-label="The mission">
+    <div class="scene-inner">
+      <div class="s-kicker"><span class="no">02</span> The mission</div>
+      <h2 class="s-title">Bridging what's changing<br>and what's <em>next.</em></h2>
+      <p class="s-dek">OTV Education Conclave &amp; Expo aims to bring together policymakers, educators and students under one roof &mdash; and bridge the gap between emerging educational trends and practical career guidance.</p>
+      <p class="mission-extra">It is a platform for proactive engagement to shape the future, especially in the fast-evolving landscape of AI and technology-driven education. The event serves as a comprehensive platform for students, parents and educators to engage in meaningful discussions about career planning, life choices, and emerging fields.</p>
+    </div>
+  </section>
+
+  <section class="scene scene-sessions left" id="sceneSessions" data-screen-label="The sessions">
+    <div class="scene-inner">
+      <div class="s-kicker"><span class="no">03</span> The sessions</div>
+      <h2 class="s-title">Four conversations<br>that <em>matter.</em></h2>
+      <p class="s-dek">OTV Education Conclave 2026 &mdash; four expert-led sessions on the questions shaping how the next generation learns.</p>
+      <div class="session-list">
+        <div class="session">
+          <div class="se-no">01</div>
+          <div class="se-body">
+            <h3>Paper Leak Pandemic &mdash; Safe Exams, Fair Future</h3>
+            <p>A discussion on examination integrity and ensuring a fair future for students.</p>
+          </div>
         </div>
-        <div class="pillars">
-          <div class="pillar">
-            <div class="pico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd27a" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg></div>
-            <b>Discover</b><span>All institutions &amp; programmes in one hall.</span>
+        <div class="session">
+          <div class="se-no">02</div>
+          <div class="se-body">
+            <h3>NEP 2020 in 2026 &mdash; Vision and Ground Reality</h3>
+            <p>An analysis of the National Education Policy and its implementation.</p>
           </div>
-          <div class="pillar">
-            <div class="pico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd27a" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
-            <b>Compare</b><span>Fees, courses &amp; outcomes, face to face.</span>
+        </div>
+        <div class="session">
+          <div class="se-no">03</div>
+          <div class="se-body">
+            <h3>Career Beyond Engineering &amp; Medicine &mdash; New-Age Opportunities</h3>
+            <p>A debate on emerging career paths and opportunities beyond traditional professions, offering valuable guidance to the younger generation.</p>
           </div>
-          <div class="pillar">
-            <div class="pico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd27a" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-            <b>Consult</b><span>Free counselling &amp; career guidance.</span>
-          </div>
-          <div class="pillar">
-            <div class="pico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd27a" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <b>Decide</b><span>On-spot admissions &amp; scholarships.</span>
+        </div>
+        <div class="session">
+          <div class="se-no">04</div>
+          <div class="se-body">
+            <h3>AI in Education &mdash; Will It Make Students Smarter or Lazier?</h3>
+            <p>Experts discuss the impact of Artificial Intelligence on education and learning outcomes.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ======= GALLERY SECTION HEADER ======= -->
-<section id="gallery" style="padding-bottom:40px">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Moments from the expo</span>
-      <h2>A campus-sized celebration of learning</h2>
-      <p>Four years of full halls, packed seminars and life-changing decisions. Here's a glimpse.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ======= GALLERY 1 : MASONRY ======= -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <!-- <div class="eyebrow reveal" style="margin-bottom:22px">01 — Masonry highlights</div> -->
-    <div class="gal-masonry reveal">
-      <figure><img src="images/stage1.jpg" alt="Expo hall"><figcaption></figcaption></figure>
-      <figure><img src="images/stage3.jpg" alt="Students"><figcaption></figcaption></figure>
-      <figure><img src="images/stage10.jpg" alt="Counselling"><figcaption></figcaption></figure>
-  
-
-      <figure><img src="images/stage2.jpg" alt="Workshop"><figcaption></figcaption></figure>
-      <figure><img src="images/stage4.jpg" alt="Workshop"><figcaption></figcaption></figure>
-      <figure><img src="images/stage7.jpg" alt="Workshop"><figcaption></figcaption></figure>
-      
-
-      <figure><img src="images/stage9.jpg" alt="Workshop"><figcaption></figcaption></figure>
-      <figure><img src="images/stage6.jpg" alt="Workshop"><figcaption></figcaption></figure>
-      <figure><img src="images/stage11.jpg" alt="Workshop"><figcaption></figcaption></figure>
-        
-      
-    </div>
-  </div>
-</section>
-
-<!-- ======= GALLERY 2 : BENTO ======= -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow reveal" style="margin-bottom:22px">02 — Bento grid</div>
-    <div class="gal-bento reveal">
-      <div class="cell big"><img src="https://picsum.photos/seed/bento1/800/800" alt=""><span class="lbl">Inauguration ceremony</span></div>
-      <div class="cell wide"><img src="https://picsum.photos/seed/bento2/800/400" alt=""><span class="lbl">Ed-tech zone</span></div>
-      <div class="cell"><img src="https://picsum.photos/seed/bento3/400/400" alt=""><span class="lbl">Study abroad</span></div>
-      <div class="cell tall"><img src="https://picsum.photos/seed/bento4/400/800" alt=""><span class="lbl">Skilling demos</span></div>
-      <div class="cell"><img src="https://picsum.photos/seed/bento5/400/400" alt=""><span class="lbl">Scholarship desk</span></div>
-      <div class="cell wide"><img src="https://picsum.photos/seed/bento6/800/400" alt=""><span class="lbl">Panel discussion</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ======= GALLERY 3 : HORIZONTAL SCROLL ======= -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow reveal" style="margin-bottom:22px">03 — Day-by-day, swipe through</div>
-    <div class="gal-scroll-wrap reveal">
-      <div class="gal-scroll">
-        <div class="slide"><span class="pin">Day 1</span><img src="https://picsum.photos/seed/day1/700/520" alt=""><div class="meta"><b>Grand opening</b><span>Ribbon-cutting &amp; first rush of visitors.</span></div></div>
-        <div class="slide"><span class="pin">Day 1</span><img src="https://picsum.photos/seed/day2/700/520" alt=""><div class="meta"><b>School pavilions</b><span>Parents exploring K-12 options.</span></div></div>
-        <div class="slide"><span class="pin">Day 2</span><img src="https://picsum.photos/seed/day3/700/520" alt=""><div class="meta"><b>Career summit</b><span>Industry leaders on future skills.</span></div></div>
-        <div class="slide"><span class="pin">Day 2</span><img src="https://picsum.photos/seed/day4/700/520" alt=""><div class="meta"><b>Study-abroad fair</b><span>Universities from 14 countries.</span></div></div>
-        <div class="slide"><span class="pin">Day 3</span><img src="https://picsum.photos/seed/day5/700/520" alt=""><div class="meta"><b>Scholarship day</b><span>₹2Cr+ in on-spot awards.</span></div></div>
-      </div>
-      <div class="scroll-hint">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        Scroll / swipe to explore all three days
+  <!-- <section class="scene scene-stats left" data-screen-label="By the numbers">
+    <div class="scene-inner">
+      <div class="s-kicker"><span class="no">04</span> The fair</div>
+      <h2 class="s-title">The whole ecosystem,<br>under <em>one roof.</em></h2>
+      <div class="stat-row">
+        <div class="stat"><div class="n"><span class="count" data-count="120">0</span><sup>+</sup></div><div class="l">Institutions</div></div>
+        <div class="stat"><div class="n"><span class="count" data-count="40">0</span>K<sup>+</sup></div><div class="l">Visitors</div></div>
+        <div class="stat"><div class="n"><span class="count" data-count="60">0</span><sup>+</sup></div><div class="l">Sessions</div></div>
+        <div class="stat"><div class="n">100<sup>%</sup></div><div class="l">Free entry</div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section> -->
 
-<!-- ======= GALLERY 4 : POLAROID STACK ======= -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow reveal" style="margin-bottom:22px;text-align:center">04 — From the community</div>
-    <div class="gal-polaroids reveal">
-      <figure class="polaroid"><img src="https://picsum.photos/seed/pola1/400/400" alt=""><figcaption>"Found my college here!"</figcaption></figure>
-      <figure class="polaroid"><img src="https://picsum.photos/seed/pola2/400/400" alt=""><figcaption>First-gen learners</figcaption></figure>
-      <figure class="polaroid"><img src="https://picsum.photos/seed/pola3/400/400" alt=""><figcaption>Exhibitor team</figcaption></figure>
-      <figure class="polaroid"><img src="https://picsum.photos/seed/pola4/400/400" alt=""><figcaption>Volunteers &amp; crew</figcaption></figure>
+  <section class="scene scene-aud" id="sceneAud" data-screen-label="Who it's for">
+    <div class="scene-inner">
+      <div class="s-kicker"><span class="no">05</span> Who it's for</div>
+      <h2 class="s-title">Three ways <em>in.</em></h2>
+      <div class="aud-rows">
+        <div class="aud-row">
+          <div class="a-no">i.</div>
+          <div>
+            <h3>Students &amp; Parents</h3>
+            <p>Meet 120+ institutions, get free counselling, and walk away with offers in hand.</p>
+          </div>
+          <div class="a-cta"><a class="btn solid" href="#register">Register Free</a></div>
+        </div>
+        <div class="aud-row">
+          <div class="a-no">ii.</div>
+          <div>
+            <h3>Institutions</h3>
+            <p>Showcase and enrol — direct leads from 40,000+ motivated visitors across the state.</p>
+          </div>
+          <div class="a-cta"><a class="btn" href="#register">Book a Stall</a></div>
+        </div>
+        <div class="aud-row">
+          <div class="a-no">iii.</div>
+          <div>
+            <h3>Sponsors &amp; Brands</h3>
+            <p>Title and track sponsorships, on-air promotion across OdishaTV, stage branding.</p>
+          </div>
+          <div class="a-cta"><a class="btn" href="#register">Sponsor</a></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ======= SPONSORS ======= -->
-<section id="sponsors" class="sponsors">
-  <div class="wrap">
-    <div class="sec-head center reveal" style="margin-bottom:10px">
-      <span class="eyebrow">Backed by the best</span>
-      <h2>Past partners &amp; sponsors</h2>
-      <p>Join the brands that put their name on Odisha's biggest education stage.</p>
+  <section class="scene scene-visit right" id="sceneVisit" data-screen-label="Your visit">
+    <div class="scene-inner">
+      <div class="s-kicker"><span class="no">06</span> Your visit</div>
+      <h2 class="s-title">Four steps, <em>one day.</em></h2>
+      <div class="visit-row">
+        <div class="v-step"><div class="v-n">i.</div><h3>Discover</h3><p>Every institution and programme, gathered in one hall.</p></div>
+        <div class="v-step"><div class="v-n">ii.</div><h3>Compare</h3><p>Fees and outcomes, face to face with the people who decide.</p></div>
+        <div class="v-step"><div class="v-n">iii.</div><h3>Consult</h3><p>Free career counselling, open to every visitor.</p></div>
+        <div class="v-step"><div class="v-n">iv.</div><h3>Decide</h3><p>On-spot admissions and scholarships before you leave.</p></div>
+      </div>
     </div>
-    <div class="logos reveal">
-      <div class="lg">EduCorp</div>
-      <div class="lg">SkillNation</div>
-      <div class="lg">CampusOne</div>
-      <div class="lg">LearnHub</div>
-      <div class="lg">FutureU</div>
-      <div class="lg">BrightPath</div>
-      <div class="lg">GlobalEd</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ======= REGISTRATION FORM ======= -->
-<section id="register">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Get started</span>
-      <h2>Register your interest</h2>
-      <p>One form for everything — pick what you're here for and we'll get back within 24 hours.</p>
+  <section class="scene scene-end" data-screen-label="End of hall">
+    <div class="scene-inner" style="text-align:center; max-width: 900px; margin: 0 auto;">
+      <div class="s-kicker" style="justify-content:center;">End of the hall</div>
+      <h2 class="s-title" style="font-size: clamp(40px, 7vw, 110px);">Your future is<br>just <em>ahead.</em></h2>
     </div>
+  </section>
 
-    <div class="reg-card reveal">
-      <!-- Left panel -->
-      <div class="reg-side">
-        <span class="eyebrow">Why register</span>
-        <h2 id="regSideTitle">Book your stall</h2>
-        <p id="regSideText">Secure prime placement in the main hall and reach 40,000+ students and parents over three days.</p>
+</main>
+
+<!-- solid ground: register + partners + footer -->
+<div class="ground">
+
+  <section class="register" id="register" data-screen-label="Register">
+    <div class="reg-inner">
+      <div class="reg-pitch">
+        <div class="s-kicker"><span class="no">07</span> Get started</div>
+        <h2>Save your <em>spot.</em></h2>
+        <p class="s-dek">One form for everything — tell us what you're here for and the team gets back within 24 hours.</p>
         <ul class="reg-points">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Response within 24 hours</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> No payment needed to enquire</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Dedicated relationship manager</li>
+          <li>Response within 24 hours</li>
+          <li>No payment needed to enquire</li>
+          <li>Dedicated relationship manager for exhibitors</li>
         </ul>
       </div>
-
-      <!-- Right: form -->
-      <div class="reg-form">
-        <form id="regForm" novalidate>
-          <div class="seg" id="seg">
-            <button type="button" data-type="stall" class="active">Book a Stall</button>
-            <button type="button" data-type="sponsor">Sponsor</button>
-            <button type="button" data-type="attend">Participate</button>
-          </div>
-
-          <div class="field-row">
-            <div class="field" data-validate>
-              <label>Full name <span class="req">*</span></label>
-              <input type="text" name="name" placeholder="Your name" />
-              <div class="err">Please enter your name.</div>
-            </div>
-            <div class="field" data-validate>
-              <label>Phone <span class="req">*</span></label>
-              <input type="tel" name="phone" placeholder="10-digit mobile" />
-              <div class="err">Enter a valid 10-digit number.</div>
-            </div>
-          </div>
-
-          <div class="field" data-validate>
-            <label>Email <span class="req">*</span></label>
-            <input type="email" name="email" placeholder="you@example.com" />
-            <div class="err">Enter a valid email address.</div>
-          </div>
-
-          <!-- Org field: hidden for attendees -->
-          <div class="field" id="orgField" data-validate>
-            <label id="orgLabel">Institution / Organisation <span class="req">*</span></label>
-            <input type="text" name="org" placeholder="Name of your school, college or brand" />
-            <div class="err">Please enter your organisation.</div>
-          </div>
-
-          <!-- Conditional select -->
-          <div class="field" data-validate>
-            <label id="optLabel">Stall type <span class="req">*</span></label>
-            <select name="option" id="optSelect">
-              <option value="">Select an option</option>
-            </select>
-            <div class="err">Please choose an option.</div>
-          </div>
-
-          <div class="field">
-            <label>Message <span style="color:var(--ink-soft);font-weight:500">(optional)</span></label>
-            <textarea name="message" placeholder="Tell us a little about your requirement…"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" id="regSubmit">Submit Enquiry
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <p class="form-note">By submitting you agree to be contacted by the Odisha Education Expo team.</p>
-        </form>
-
-        <!-- Success state -->
-        <div class="reg-success" id="regSuccess">
-          <div class="check">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-          </div>
+      <form class="reg-form" id="regForm" novalidate>
+        <div class="reg-tabs" role="tablist">
+          <button type="button" class="reg-tab" role="tab" aria-selected="true" data-track="visit">Attend</button>
+          <button type="button" class="reg-tab" role="tab" aria-selected="false" data-track="stall">Book a Stall</button>
+          <button type="button" class="reg-tab" role="tab" aria-selected="false" data-track="sponsor">Sponsor</button>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-org">Institution / Organisation</label><input id="f-org" type="text" autocomplete="organization"></div>
+        <div class="field">
+          <label for="f-type" id="f-type-label">I am a…</label>
+          <select id="f-type"><option>Student</option><option>Parent / Guardian</option><option>Educator</option><option>Other</option></select>
+        </div>
+        <div class="field"><label for="f-msg">Message (optional)</label><textarea id="f-msg" rows="3"></textarea></div>
+        <button class="btn solid" type="submit">Submit Enquiry <span class="arr">→</span></button>
+        <p class="form-note">By submitting you agree to be contacted by the Odisha Education Expo team.</p>
+        <div class="form-thanks" id="formThanks">
           <h3>Thank you!</h3>
-          <p id="successText">Your enquiry has been received. Our team will reach out within 24 hours.</p>
-          <button type="button" class="btn btn-ghost" id="regReset">Submit another</button>
+          <p>Your enquiry has been received. The team will reach out within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- <section class="backers" id="partners" data-screen-label="Partners">
+    <div class="backers-inner">
+      <div class="b-head"><h4>Our backers</h4><span>Partners &amp; sponsors</span></div>
+      <div class="partner-grid">
+        <div class="partner-slot">partner logo</div>
+        <div class="partner-slot">partner logo</div>
+        <div class="partner-slot">partner logo</div>
+        <div class="partner-slot">partner logo</div>
+        <div class="partner-slot">partner logo</div>
+        <div class="partner-slot">partner logo</div>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="footer" data-screen-label="Footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://old.odishatv.in/commondir/web/mobile/images/header-dark-logo.png" alt="OdishaTV">
+          <p>Odisha's largest one-stop education event — connecting students, parents and institutions across the state. An OdishaTV initiative.</p>
+        </div>
+        <div>
+          <h4>Participate</h4>
+          <ul><li><a href="#register">Register Free</a></li><li><a href="#register">Book a Stall</a></li><li><a href="#register">Become a Sponsor</a></li></ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul><li><a href="mailto:expo@odishatv.in">expo@odishatv.in</a></li><li><a href="#">+91 00000 00000 (TBA)</a></li><li><a href="#">Bhubaneswar · Venue TBA</a></li></ul>
         </div>
       </div>
+      <div class="footer-base">
+        <span>© 2026 OdishaTV · expo.odishatv.in</span>
+        <span>Privacy · Terms · Exhibitor Guidelines</span>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ======= FINAL CTA ======= -->
-<section style="padding-top:20px">
-  <div class="wrap">
-    <div class="cta-band reveal">
-      <span class="eyebrow" style="justify-content:center;display:flex">Limited stalls remaining</span>
-      <h2>Be part of Odisha Education Expo 2026</h2>
-      <p>Book your stall, lock in a sponsorship, or register to attend — all in a few clicks.</p>
-      <div class="cta-actions">
-        <a href="#register" data-open="stall" class="btn btn-primary">Book a Stall</a>
-        <a href="#register" data-open="sponsor" class="btn btn-amber">Become a Sponsor</a>
-        <a href="#register" data-open="attend" class="btn btn-ghost">Participate Free</a>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- ======= FOOTER ======= -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="#" style="color:#fff">
-          <span class="logo">OE</span>
-          <span style="color:#fff">Odisha Education Expo<small style="color:#9bb8d6">An OdishaTV Initiative</small></span>
-        </a>
-        <p>Odisha's largest one-stop education event — connecting students, parents and institutions across the state.</p>
-      </div>
-      <div>
-        <h4>Participate</h4>
-        <a href="#">Book a Stall</a>
-        <a href="#">Become a Sponsor</a>
-        <a href="#">Visitor Registration</a>
-        <a href="#">Floor Plan</a>
-      </div>
-      <div>
-        <h4>Event</h4>
-        <a href="#">Schedule</a>
-        <a href="#">Speakers</a>
-        <a href="#">Gallery</a>
-        <a href="#">Venue &amp; Travel</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="#">expo@odishatv.in</a>
-        <a href="#">+91 00000 00000</a>
-        <a href="#">Janata Maidan, Bhubaneswar</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 OdishaTV · expo.odishatv.in</span>
-      <span>Privacy · Terms · Exhibitor Guidelines</span>
-    </div>
-  </div>
-</footer>
+
+
+
 
 <script>
-  /* ===== Mobile nav — bound FIRST so nothing else can block it ===== */
-  (function(){
-    var burger = document.getElementById('hamburger');
-    var navCollapse = document.getElementById('navCollapse');
-    if(!burger || !navCollapse) return;
-    function setOpen(open){
-      burger.classList.toggle('open', open);
-      navCollapse.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.classList.toggle('nav-locked', open);
-    }
-    burger.addEventListener('click', function(e){
-      e.preventDefault();
-      setOpen(!burger.classList.contains('open'));
-    });
-    navCollapse.addEventListener('click', function(e){
-      if(e.target.closest('a')) setOpen(false);
-    });
-    window.addEventListener('resize', function(){ if(window.innerWidth > 940) setOpen(false); });
-  })();
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var isMobile = window.matchMedia("(max-width: 1020px)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.globalTimeline.timeScale(1.6); /* baked default motion: subtle */
 
-  /* ===== Scroll reveal (isolated) ===== */
-  (function(){
-    try{
-      if(!('IntersectionObserver' in window)){
-        document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
-        return;
-      }
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-      },{threshold:.12});
-      document.querySelectorAll('.reveal').forEach(function(el,i){
-        el.style.transitionDelay = (i%3)*0.08 + 's';
-        io.observe(el);
+  var loading = document.getElementById("hallLoading");
+  var railFill = document.getElementById("railFill");
+  var railPct = document.getElementById("railPct");
+  var cue = document.getElementById("scrollCue");
+
+  /* shared: anchor scrolling. On desktop Lenis handles it; on mobile, native smooth scroll. */
+  function setupAnchors(lenis) {
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var id = a.getAttribute("href");
+        if (id.length > 1) {
+          var target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            if (lenis) lenis.scrollTo(target, { offset: -10 });
+            else window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 10, behavior: "smooth" });
+          }
+        }
       });
-    }catch(err){ document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
-  })();
-
-  /* ===== Registration form (isolated) ===== */
-  (function(){
-   try{
-    var CONFIG = {
-      stall:   { side:'Book your stall',
-                 text:'Secure prime placement in the main hall and reach 40,000+ students and parents over three days.',
-                 org:'Institution / Organisation', orgReq:true,
-                 optLabel:'Stall type', opts:['Standard stall (3×3 m)','Premium stall (3×6 m)','Corner stall','Custom / large space'],
-                 btn:'Request Stall Details', success:'Your stall enquiry is in. Our exhibitor team will share the floor plan and pricing within 24 hours.' },
-      sponsor: { side:'Become a sponsor',
-                 text:'Put your brand on Odisha’s biggest education stage — on-ground and on-air across OdishaTV.',
-                 org:'Brand / Organisation', orgReq:true,
-                 optLabel:'Sponsorship package', opts:['Title sponsor','Co-title sponsor','Track / zone sponsor','Associate sponsor','Custom package'],
-                 btn:'Get Sponsor Deck', success:'Thanks for your interest in sponsoring. We’ll email you the sponsorship deck and packages within 24 hours.' },
-      attend:  { side:'Participate free',
-                 text:'Register as a visitor and meet 120+ institutions, get free counselling and on-spot scholarships.',
-                 org:'Institution (optional)', orgReq:false,
-                 optLabel:'I am a', opts:['Student','Parent / Guardian','Teacher / Counsellor','Working professional'],
-                 btn:'Register Free', success:'You’re registered! Check your email for your free visitor pass and event schedule.' }
-    };
-
-    var curType = 'stall';
-    var seg = document.getElementById('seg');
-    var form = document.getElementById('regForm');
-    var optSelect = document.getElementById('optSelect');
-    var orgField = document.getElementById('orgField');
-    if(!form) return;
-
-    function applyType(type){
-      curType = type;
-      var c = CONFIG[type];
-      document.getElementById('regSideTitle').textContent = c.side;
-      document.getElementById('regSideText').textContent = c.text;
-      document.getElementById('orgLabel').innerHTML = c.org + (c.orgReq ? ' <span class="req">*</span>' : '');
-      orgField.dataset.optional = c.orgReq ? '' : 'true';
-      document.getElementById('optLabel').innerHTML = c.optLabel + ' <span class="req">*</span>';
-      document.getElementById('regSubmit').firstChild.textContent = c.btn + ' ';
-      optSelect.innerHTML = '<option value="">Select an option</option>' +
-        c.opts.map(function(o){ return '<option value="'+o+'">'+o+'</option>'; }).join('');
-      document.getElementById('successText').textContent = c.success;
-      Array.prototype.forEach.call(seg.children, function(b){ b.classList.toggle('active', b.dataset.type===type); });
-    }
-
-    seg.addEventListener('click', function(e){
-      var b = e.target.closest('button'); if(!b) return;
-      applyType(b.dataset.type);
-      form.querySelectorAll('.invalid').forEach(function(f){ f.classList.remove('invalid'); });
     });
+  }
 
-    document.querySelectorAll('[data-open]').forEach(function(a){
-      a.addEventListener('click', function(){ var t=a.dataset.open; setTimeout(function(){ applyType(t); },50); });
-    });
+  /* ============================================================
+     DESKTOP — the immersive Three.js Long Hall (unchanged)
+     ============================================================ */
+  function initImmersive() {
+    var heroImages = [
+      "assets/gallery/stage1.jpg",
+      "assets/gallery/stage3.jpg",
+      "assets/gallery/stage2.jpg",
+      "assets/gallery/stage10.jpg",
+      "assets/gallery/stage4.jpg",
+      "assets/gallery/stage7.jpg",
+      "assets/gallery/stage9.jpg",
+      "assets/gallery/stage6.jpg",
+      "assets/gallery/stage11.jpg"
+    ];
 
-    function validate(){
-      var ok = true;
-      form.querySelectorAll('[data-validate]').forEach(function(f){
-        var input = f.querySelector('input,select');
-        var name = input.name;
-        var val = input.value.trim();
-        var bad = false;
-        if(f===orgField && orgField.dataset.optional==='true') bad = false;
-        else if(!val) bad = true;
-        else if(name==='email') bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-        else if(name==='phone') bad = !/^\d{10}$/.test(val.replace(/\D/g,''));
-        f.classList.toggle('invalid', bad);
-        if(bad) ok = false;
+    var hlBar = document.getElementById("hlBar");
+    var hall = null;
+    try {
+      hall = window.initLongHall({
+        canvas: document.getElementById("hallCanvas"),
+        images: heroImages, paper: "#161210",
+        onProgressLoad: function (p) { gsap.to(hlBar, { scaleX: p, duration: 0.4, ease: "power1.out" }); },
+        onReady: function (ok) {
+          gsap.to(hlBar, { scaleX: 1, duration: 0.3 });
+          gsap.to(loading, { opacity: 0, duration: 0.7, delay: 0.2, onComplete: function () { loading.classList.add("gone"); ScrollTrigger.refresh(); } });
+        }
       });
-      return ok;
+      window.__hall = hall;
+      if (hall && hall.fail) { loading.classList.add("gone"); document.body.style.background = "var(--paper)"; }
+    } catch (e) { loading.classList.add("gone"); console.warn("hall failed", e); }
+
+    /* smooth scroll */
+    var lenis = null;
+    if (!reduce && window.Lenis) {
+      lenis = new Lenis({ lerp: 0.09 });
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
     }
+    setupAnchors(lenis);
 
-    form.querySelectorAll('input,select').forEach(function(el){
-      el.addEventListener('input', function(){ var fld=el.closest('.field'); if(fld) fld.classList.remove('invalid'); });
-    });
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(!validate()){
-        var first = form.querySelector('.invalid input,.invalid select'); if(first) first.focus();
-        return;
+    /* drive camera + rail from scroll */
+    ScrollTrigger.create({
+      start: 0, end: "max", scrub: 0.4,
+      onUpdate: function (self) {
+        var p = self.progress;
+        if (hall && hall.setProgress) hall.setProgress(p);
+        railFill.style.transform = "scaleY(" + p + ")";
+        railPct.textContent = String(Math.round(p * 100)).padStart(2, "0");
+        cue.style.opacity = p > 0.02 ? "0" : "1";
       }
-      // No backend wired — swap this for your API / fetch call.
-      form.style.display = 'none';
-      document.getElementById('regSuccess').classList.add('show');
     });
 
-    document.getElementById('regReset').addEventListener('click', function(){
-      form.reset();
-      form.style.display = '';
-      document.getElementById('regSuccess').classList.remove('show');
-      applyType(curType);
-    });
+    /* scene content fade in/out as you pass */
+    if (!reduce) {
+      document.querySelectorAll(".scenes .scene").forEach(function (s) {
+        var inner = s.querySelector(".scene-inner");
+        gsap.timeline({ scrollTrigger: { trigger: s, start: "top bottom", end: "bottom top", scrub: 0.5 } })
+          .fromTo(inner, { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.34, ease: "power2.out" })
+          .to(inner, { opacity: 1, duration: 0.32 })
+          .to(inner, { opacity: 0, y: -46, duration: 0.34, ease: "power2.in" });
+      });
+    }
+  }
 
-    applyType('stall');
-   }catch(err){ /* form is progressive enhancement; ignore */ }
-  })();
+  /* ============================================================
+     MOBILE — flat editorial layout, no 3D / no scroll-jacking
+     One-shot reveal per section; native scroll.
+     ============================================================ */
+  function initFlat() {
+    document.body.classList.add("flat");
+    if (loading) loading.classList.add("gone");
+    setupAnchors(null);
+
+    /* static photo wall with lightbox */
+    buildGalleryWall();
+
+    if (!reduce && "IntersectionObserver" in window) {
+      document.body.classList.add("js-reveal");
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { entries[i].target.classList.add("in"); io.unobserve(entries[i].target); }
+        }
+      }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
+      document.querySelectorAll(".scenes .scene-inner").forEach(function (el) { io.observe(el); });
+    }
+  }
+
+  /* ---- static photo wall + lightbox (mobile only) ---- */
+  function buildGalleryWall() {
+    var photos = [
+      "assets/gallery/stage3.jpg", "assets/gallery/stage2.jpg", "assets/gallery/stage10.jpg",
+      "assets/gallery/stage4.jpg", "assets/gallery/stage7.jpg", "assets/gallery/stage9.jpg",
+      "assets/gallery/stage6.jpg", "assets/gallery/stage11.jpg", "assets/gallery/stage1.jpg"
+    ];
+    var visit = document.querySelector(".scenes .scene-visit");
+    if (!visit) return;
+
+    var open = buildLightbox();
+
+    var section = document.createElement("section");
+    section.className = "scene scene-wall";
+    section.setAttribute("data-screen-label", "Gallery");
+
+    var inner = document.createElement("div");
+    inner.className = "scene-inner";
+
+    var kicker = document.createElement("div");
+    kicker.className = "s-kicker";
+    kicker.textContent = "Inside the expo";
+    inner.appendChild(kicker);
+
+    var head = document.createElement("h2");
+    head.className = "wall-head";
+    head.innerHTML = "From the <em>floor.</em>";
+    inner.appendChild(head);
+
+    var grid = document.createElement("div");
+    grid.className = "wall-grid";
+    for (var i = 0; i < photos.length; i++) {
+      var cell = document.createElement("figure");
+      cell.className = "wall-cell" + (i === 0 || i === 5 || i === 8 ? " feature" : "");
+      var img = document.createElement("img");
+      img.src = photos[i];
+      img.alt = "Odisha Education Expo";
+      img.loading = "lazy";
+      img.decoding = "async";
+      cell.appendChild(img);
+      (function (src) { cell.addEventListener("click", function () { open(src); }); })(photos[i]);
+      grid.appendChild(cell);
+    }
+    inner.appendChild(grid);
+    section.appendChild(inner);
+    visit.parentNode.insertBefore(section, visit.nextSibling);
+  }
+
+  function buildLightbox() {
+    var box = document.createElement("div");
+    box.className = "lightbox";
+    var img = document.createElement("img");
+    img.alt = "";
+    var close = document.createElement("button");
+    close.type = "button";
+    close.className = "lb-close";
+    close.textContent = "Close";
+    box.appendChild(img);
+    box.appendChild(close);
+    document.body.appendChild(box);
+
+    function hide() { box.classList.remove("open"); }
+    box.addEventListener("click", function (e) { if (e.target === box || e.target === close) hide(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); });
+
+    return function (src) { img.src = src; box.classList.add("open"); };
+  }
+
+  if (isMobile) initFlat(); else initImmersive();
+
+  /* ---------- shared behaviour (both layouts) ---------- */
+
+  /* counters */
+  document.querySelectorAll(".count").forEach(function (el) {
+    var target = parseInt(el.dataset.count, 10);
+    if (reduce) { el.textContent = target; return; }
+    ScrollTrigger.create({
+      trigger: el, start: "top 92%", once: true,
+      onEnter: function () { gsap.fromTo(el, { innerText: 0 }, { innerText: target, duration: 1.5, ease: "power2.out", snap: { innerText: 1 } }); }
+    });
+  });
+
+  /* mobile menu */
+  var menuBtn = document.getElementById("menuBtn");
+  var menuOverlay = document.getElementById("menuOverlay");
+  function closeMenu() { menuOverlay.classList.remove("open"); menuBtn.textContent = "Menu"; }
+  menuBtn.addEventListener("click", function () { var open = menuOverlay.classList.toggle("open"); menuBtn.textContent = open ? "Close" : "Menu"; });
+  menuOverlay.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", closeMenu); });
+
+  /* form tabs */
+
+})();
 </script>
+
 </body>
 </html>
